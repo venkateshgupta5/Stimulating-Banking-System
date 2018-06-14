@@ -31,6 +31,7 @@ class Banking:
 		self.savingsAccount[self.accountnumber]=[name, initialdeposit]
 		print("Account created. Note down your account number")
 		print(self.accountnumber)
+		print('')
 
 	def validUser(self, name, actno):
 		if actno in self.savingsAccount.keys():
@@ -40,9 +41,11 @@ class Banking:
 				return True
 			else:
 				print("Authentication Unsucessful ----> ")
+				print('')
 				return False
 		else:
 			print("Authentication Failed")
+			print('')
 			return False
 
 		# else:

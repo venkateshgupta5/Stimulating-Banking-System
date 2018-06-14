@@ -1,46 +1,74 @@
 import random
+from abc import ABCMeta, abstractmethod
+
+class Account(metaclass = ABCMeta):
+	def createNewSavingAccount():
+		return 0
+
+	@abstractmethod
+	def validUser():
+		return 0
+
+	@abstractmethod
+	def withdraw():
+		return 0
+
+	@abstractmethod
+	def deposit():
+		return 0
+
+	@abstractmethod
+	def showBalance():
+		return 0 
+
 class Banking:
 
-	z =[]
-	print(z)
+	def __init__(self):
+		self.savingsAccount={}
 
 
-	def createNewSavingAccount(self, name, deposit):
-		self.name = name
-		self.balance = deposit
-		self.number = random.randint(10000,99999)
-		self.z.append(self.number)
-		print("Hey {}. Your account number is {}. Current Balance {}.".format(self.name, self.number, self.balance))
+	def createNewSavingAccount(self, name, initialdeposit):
+		self.accountnumber = random.randint(10000,99999)
+		self.savingsAccount[self.accountnumber]=[name, initialdeposit]
 
-	def validUser(self, actno):
-		self.actno = actno
-		if self.actno in self.z:
-			return True
+	def validUser(self, name, actno):
+		if actno in self.savingsAccount.keys():
+			if self.savingsAccount[actno][0] == name:
+				print("Authentication Successful")
+				self.accountnumber = actno
+				return True
+			else:
+				print("Authentication Unsucessful ----> ")
+				return False
+		else:
+			print("Authentication Failed")
+			return False
+
 		# else:
 		# 	print("Invalid User")
 
-	def accessAccount(self):
-		print("Your name is :- ", self.name)
-		print("Your account number is :- ",self.number)
-		print("Your account balance is :- ",self.deposit)
+	# def accessAccount(self):
+	# 	print("Your name is :- ", self.name)
+	# 	print("Your account number is :- ",self.number)
+	# 	print("Your account balance is :- ",self.deposit)
 
 	def withdraw(self, withdrawAmt):
-		self.withdrawAmt = withdrawAmt
-		if self.withdrawAmt <= self.balance:
-			self.balance = self.balance - self.withdrawAmt
-			print("You withdrew :- ", self.withdrawAmt)
-			print("Your balance is ", self.balance)
+		if withdrawAmt >= self.savingsAccount[self.accountnumber][1]:
+			print("Insufficient Balance")
+
 		else:
-			print("You don\'t have sufficient balance")
+			self.savingsAccount[self.accountnumber][1] -= withdrawAmt
+			print("Withdrawal Successful.")
+			print("Available Balance", self.savingsAccount[self.accountnumber][1])
 
 	def deposit(self, depositAmt):
-		self.deposit = depositAmt
-		balance = self.deposit + balance
-		print("You deposited :- ",self.deposit)
-		print("Your updated balance is :- ",self.balance)
+		self.savingsAccount[self.accountnumber][1] += depositAmt
+		print("Amount Deposited Successfully")
+		print("Available Balance is ", self.savingsAccount[self.accountnumber][1])
+
 
 	def showBalance(self):
-		print("Your account balance is :-", self.balance)
+		print("Your account balance is :-", self.savingsAccount[self.accountnumber][1])
 
 bank = Banking()
 

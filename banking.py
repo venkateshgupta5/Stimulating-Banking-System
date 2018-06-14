@@ -26,10 +26,11 @@ class Banking:
 	def __init__(self):
 		self.savingsAccount={}
 
-
 	def createNewSavingAccount(self, name, initialdeposit):
 		self.accountnumber = random.randint(10000,99999)
 		self.savingsAccount[self.accountnumber]=[name, initialdeposit]
+		print("Account created. Note down your account number")
+		print(self.accountnumber)
 
 	def validUser(self, name, actno):
 		if actno in self.savingsAccount.keys():
@@ -59,13 +60,12 @@ class Banking:
 		else:
 			self.savingsAccount[self.accountnumber][1] -= withdrawAmt
 			print("Withdrawal Successful.")
-			print("Available Balance", self.savingsAccount[self.accountnumber][1])
+			self.showBalance()
 
 	def deposit(self, depositAmt):
 		self.savingsAccount[self.accountnumber][1] += depositAmt
 		print("Amount Deposited Successfully")
-		print("Available Balance is ", self.savingsAccount[self.accountnumber][1])
-
+		self.showBalance()
 
 	def showBalance(self):
 		print("Your account balance is :-", self.savingsAccount[self.accountnumber][1])
@@ -88,37 +88,42 @@ while True:
 		bank.createNewSavingAccount(name, amount)
 
 	if us is 2:
+		
+		print("Enter your name")
+		name = input()
 		print("Enter your account number")
 		acctno = int(input())
-		if bank.validUser(acctno) is False:
-			print("Invalid User")
 
-		else:
-			print("1. To withdraw amount")
-			print("2. To deposit amount")
-			print("3. To see balance")
-			print("4. Quit")
-	    
+		boolean = bank.validUser(name, acctno) 
 
-			ch = int(input())
-			if ch is 1:
-				print("Enter the amount to withdraw ")
-				amount = int(input())
-				bank.withdraw(amount)
+		if boolean is True:
+			while  True:
+			
+				print("1. To withdraw amount")
+				print("2. To deposit amount")
+				print("3. To see balance")
+				print("4. Quit")
+		    
 
-			elif ch is 2:
-				print("Enter amount to deposit ")
-				amount = int(input())
-				bank.deposit(amount)
+				ch = int(input())
+				if ch is 1:
+					print("Enter the amount to withdraw ")
+					amount = int(input())
+					bank.withdraw(amount)
 
-			elif ch is 3:
-				bank.showBalance()
+				elif ch is 2:
+					print("Enter amount to deposit ")
+					amount = int(input())
+					bank.deposit(amount)
 
-			else:
-				quit()
+				elif ch is 3:
+					bank.showBalance()
+				elif ch is 4:
+					break
 
 	else:
 		quit()
+
 
 
 

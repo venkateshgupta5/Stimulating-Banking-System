@@ -1,8 +1,7 @@
-Stimulating Banking System in Python 3 
+# Stimulating Banking System in Python 3
 
 This project is a stimulation of a simple banking system in Python.
 
-Concepts Implemented :- 
 
 Abstract Base Class
 Overriding

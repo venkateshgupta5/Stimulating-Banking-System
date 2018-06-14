@@ -2,14 +2,14 @@
 
 This project is a stimulation of a simple banking system in Python.
 
+##Concepts Implemented 
+1. Abstract Base Class
+2. Overriding
+3. Single Level Inheritance
+4. Abstraction
+5. Encapsulation
 
-Abstract Base Class
-Overriding
-Inheritance
-Abstraction
-Encapsulation
-
-Overriding
+### Overriding
 
 Modifying the inherited behaviour of methods of a base class in a derived class is called overriding.
  Syntax: 

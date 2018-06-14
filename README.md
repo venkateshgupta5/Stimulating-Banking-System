@@ -1,6 +1,10 @@
 # Stimulating Banking System in Python 3
 
-This project is a stimulation of a simple banking system in Python. A user can create account by entering his name 
+This project is a stimulation of a simple banking system in Python. A user can create account by entering his name and the amount he wants to deposit. The system generates a 5 digit random account 
+number.
+
+The user can perform deposit, withdraw and check balance functions once he has an account in the 
+bank and is validated. 
 
 ## Concepts Implemented 
 1. Abstract Base Class
@@ -8,11 +12,12 @@ This project is a stimulation of a simple banking system in Python. A user can c
 3. Single Level Inheritance
 4. Abstraction
 5. Encapsulation
+6. Dictionary in Python
 
 ### Overriding
 
 Modifying the inherited behaviour of methods of a base class in a derived class is called overriding.
- Syntax: 
+ 
 
            
 ### Single Level Inheritance

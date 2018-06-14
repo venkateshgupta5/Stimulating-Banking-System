@@ -67,12 +67,13 @@ class. They belong to the abc module.
 Example:
 from abc import ABCMeta, abstractmethod
 class Shape(metaclass = ABCMeta):
-@abstractmethod
-def area(self):
-return 0
+  @abstractmethod
+  def area(self):
+  return 0
 class Square(Shape):
-def area(self, side)
-return side * side
+  def area(self, side)
+  return side * side
+
 
 
 

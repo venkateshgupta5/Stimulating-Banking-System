@@ -73,7 +73,6 @@ class Banking:
 bank = Banking()
 
 while True:
-	
 	print("Select your option :- ")
 	print("1. Create a new account with us")
 	print("2. Access your account")
@@ -87,7 +86,7 @@ while True:
 		amount = int(input())
 		bank.createNewSavingAccount(name, amount)
 
-	if us is 2:
+	elif us is 2:
 		
 		print("Enter your name")
 		name = input()
@@ -121,7 +120,7 @@ while True:
 				elif ch is 4:
 					break
 
-	else:
+	elif us is 3:
 		quit()
 
 

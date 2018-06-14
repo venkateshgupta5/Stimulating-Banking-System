@@ -30,14 +30,27 @@ Example: class Shape:
 
 Inheriting the attributes and methods of a base class into a
 derived class is called Inheritance.
- Syntax:
+Syntax:
  class BaseClass: # Body of BaseClass
  class DerivedClass(BaseClass): # Body of DerivedClass
  
  Example:
  class Shape:
  unitOfMeasurement = 'centimetre'
- class Square(Shape):
+ class Square(Shape):Modifying the inherited behaviour of methods of a base class in a derived class is called overriding.
+ Syntax: 
+class BaseClass: 
+   def methodOne(self): # Body of method class 
+
+DerivedClass(baseClass): 
+   def methodOne(self): # Redefine the body of methodOne 
+
+Example: class Shape: 
+           def area(): 
+           return 0 
+         class Square(Shape): 
+           def area(self, side): 
+           return (side * side)
  
  def __init__(self): # The attribute unitOfMeasurement has been
                        inherited from the class Shape to this class Square
